@@ -1,4 +1,4 @@
-# 🩺 Bacteremia Clinical Guideline Assistant
+# 🩺 Bacteremia Clinical Guideline Assistant 
 
 [![Live App](https://img.shields.io/badge/🚀_Live_App-Streamlit-FF4B4B?style=for-the-badge)](https://bacteremia-clinical-guideline-assistant.streamlit.app/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](LICENSE)
@@ -11,7 +11,9 @@ and page number attached to every claim.
 
 **[👉 Try it live here](https://bacteremia-clinical-guideline-assistant.streamlit.app/)**
 
-Built to stop the back-and-forth of flipping through 20-page PDF guidelines for a quick answer. This is a research and prototyping tool, not a replacement for clinical judgment or an ID consult. The pipeline itself isn't tied to bacteremia specifically, point it at a different set of clinical guideline PDFs and it works the same way for another condition.
+Built to stop the back-and-forth of flipping through 20-page PDF guidelines for a quick answer. This is a research and prototyping tool, not a replacement for clinical judgment or an ID consult.
+
+**[ This is a DOMAIN agnostic pipeline (isn't tied to bacteremia specifically, point it at a different set of clinical guideline PDFs and it works the same way for another condition.) ]**
 
 ## How It Works
 
