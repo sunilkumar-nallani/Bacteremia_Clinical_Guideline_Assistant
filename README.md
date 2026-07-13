@@ -1,16 +1,17 @@
-# Bacteremia Clinical Guideline Assistant
+# 🩺 Bacteremia Clinical Guideline Assistant
+
+[![Live App](https://img.shields.io/badge/🚀_Live_App-Streamlit-FF4B4B?style=for-the-badge)](https://bacteremia-clinical-guideline-assistant.streamlit.app/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](LICENSE)
+[![Python](https://img.shields.io/badge/Python-3.10+-blue.svg?style=for-the-badge)](https://www.python.org/)
+
 
 Ask a clinical question about bacteremia and get an answer pulled straight 
 from hospital antibiotic stewardship guidelines, with the source document 
 and page number attached to every claim.
 
-The retrieval pipeline itself isn't tied to bacteremia specifically, point 
-it at a different set of clinical guideline PDFs and it works the same way 
-for another condition.
+**[👉 Try it live here](https://bacteremia-clinical-guideline-assistant.streamlit.app/)**
 
-Built to stop the back-and-forth of flipping through 20-page PDF guidelines 
-for a quick answer. This is a research and prototyping tool, not a 
-replacement for clinical judgment or an ID consult.
+Built to stop the back-and-forth of flipping through 20-page PDF guidelines for a quick answer. This is a research and prototyping tool, not a replacement for clinical judgment or an ID consult. The pipeline itself isn't tied to bacteremia specifically, point it at a different set of clinical guideline PDFs and it works the same way for another condition.
 
 ## How It Works
 
@@ -23,6 +24,22 @@ Best-matching chunks retrieved → reranked for relevance
 │
 LLM answers only from those chunks, citing filename + page
 
+---
+
+## 📊 Evaluation
+
+Answer quality was measured with [RAGAS](https://github.com/explodinggym/ragas) across multiple evaluation runs on a held-out test set of clinical questions:
+
+| Metric | Score | What it measures |
+|---|---|---|
+| Faithfulness | ~0.73 | How well the answer sticks to the retrieved sources, without adding unsupported claims |
+| Context Precision | ~0.87 | How relevant the retrieved chunks are to the question |
+| Context Recall | ~0.97 | How well the retrieval step captures all the relevant information available |
+| Answer Relevancy | ~0.75 | How directly the final answer addresses the question asked |
+
+High context recall combined with lower faithfulness suggests the retriever is doing its job well, and most remaining improvement is in how tightly the generation step sticks to the retrieved text — a known trade-off worth tuning further.
+
+---
 
 ## Getting Started
 
