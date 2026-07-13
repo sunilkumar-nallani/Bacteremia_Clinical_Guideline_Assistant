@@ -44,8 +44,8 @@ High context recall combined with lower faithfulness suggests the retriever is d
 ## Getting Started
 
 ```bash
-git clone https://github.com/<your-username>/bacteremia-rag-assistant.git
-cd bacteremia-rag-assistant
+git clone https://github.com/sunilkumar-nallani/Bacteremia_Clinical_Guideline_Assistant.git
+cd Bacteremia_Clinical_Guideline_Assistant
 pip install -r requirements.txt
 ```
 
