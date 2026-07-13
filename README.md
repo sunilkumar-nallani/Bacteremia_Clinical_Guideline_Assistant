@@ -4,7 +4,7 @@ Ask a clinical question about bacteremia and get an answer pulled straight
 from hospital antibiotic stewardship guidelines, with the source document 
 and page number attached to every claim.
 
-The retrieval pipeline itself isn't tied to bacteremia specifically — point 
+The retrieval pipeline itself isn't tied to bacteremia specifically, point 
 it at a different set of clinical guideline PDFs and it works the same way 
 for another condition.
 
