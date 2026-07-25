@@ -15,6 +15,11 @@ Built to stop the back-and-forth of flipping through 20-page PDF guidelines for 
 
 **[ This is a DOMAIN agnostic pipeline (isn't tied to bacteremia specifically, point it at a different set of clinical guideline PDFs and it works the same way for another condition.) ]**
 
+## Intended Purpose
+
+This is a research prototype demonstrating grounded retrieval-augmented generation for clinical guideline lookup. It is intended to help clinicians, pharmacists, or students quickly locate guideline-based information during research or education - not to autonomously diagnose, recommend treatment, 
+or replace an infectious disease (ID) consult. All outputs must be verified against the cited source before any clinical use.
+
 ## How It Works
 
 PDFs → chunked by meaning → embedded into a FAISS index
@@ -25,6 +30,19 @@ Question comes in → rewritten into 3 clinical phrasings
 Best-matching chunks retrieved → reranked for relevance
 │
 LLM answers only from those chunks, citing filename + page
+
+---
+
+## Regulatory Context (EU AI Act)
+
+This prototype is a retrieval tool grounded in static guideline documents. It is not currently a safety component of a medical device and is not marketed for clinical deployment, so under the AI Act's Article 6 classification logic it would not currently fall under Annex I. If adapted for real clinical use - e.g., directly influencing treatment decisions in a hospital workflow — its intended purpose and safety role would need to be reassessed, likely triggering medical-device (MDR) and Annex I considerations. This project was built with that distinction in mind: strict grounding, mandatory citations, and explicit non-diagnostic framing 
+are deliberate design choices to keep the current version outside high-risk territory while demonstrating the safety principles that would apply if it were scaled toward real use.
+
+---
+
+## Human Oversight
+
+Every answer requires the user to verify the cited source and page before acting on it. The system is designed to support review, not replace it - it does not make autonomous recommendations and will not answer questions outside the loaded guideline documents.
 
 ---
 
@@ -39,7 +57,7 @@ Answer quality was measured with [RAGAS](https://github.com/explodinggym/ragas) 
 | Context Recall | ~0.97 | How well the retrieval step captures all the relevant information available |
 | Answer Relevancy | ~0.75 | How directly the final answer addresses the question asked |
 
-High context recall combined with lower faithfulness suggests the retriever is doing its job well, and most remaining improvement is in how tightly the generation step sticks to the retrieved text — a known trade-off worth tuning further.
+High context recall combined with lower faithfulness suggests the retriever is doing its job well, and most remaining improvement is in how tightly the generation step sticks to the retrieved text = a known trade-off worth tuning further. (Faithfulness (~0.73) is the metric prioritised for improvement, since strict grounding is the core safety requirement of this system - a lower score here matters more than a lower score on relevancy.)
 
 ---
 
