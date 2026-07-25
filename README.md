@@ -86,4 +86,4 @@ MIT
 
 ## Contact
 
-**Sunil Kumar Nallani** — sunilkumar.nallani@gmail.com — [LinkedIn](https://www.linkedin.com/in/nallani-sunil-kumar-67227a243/)
+**Sunil Kumar Nallani** - sunilkumar.nallani@stud.uni-goettingen.de - [LinkedIn](https://www.linkedin.com/in/nallani-sunil-kumar-67227a243/)
