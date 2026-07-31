@@ -21,7 +21,6 @@ from langchain_community.document_compressors import FlashrankRerank
 
 from langchain_classic.retrievers import MultiQueryRetriever
 from langchain_core.prompts import PromptTemplate
-from langchain_core.prompts import PromptTemplate
 
 from langchain_core.runnables import RunnableParallel, RunnablePassthrough, RunnableLambda
 from langchain_core.output_parsers import StrOutputParser

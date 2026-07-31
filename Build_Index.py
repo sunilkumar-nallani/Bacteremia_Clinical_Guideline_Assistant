@@ -1,3 +1,14 @@
+# build_index.py  (run once)
+#     │
+#     │  Loads PDFs → Chunks → Embeds → vector_store.save_local("faiss_index")
+#     ▼
+# faiss_index/                    ← a folder now sitting on your disk
+#     ├── index.faiss             ← the vectors
+#     └── index.pkl               ← the text + metadata
+
+
+
+
 import os
 from dotenv import load_dotenv
 from langchain_community.document_loaders import PyPDFLoader
