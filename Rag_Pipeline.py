@@ -136,7 +136,7 @@ main_chain = (
     | StrOutputParser()
 )
 
-# --- Convenience wrapper matching your notebook's invoke_with_retry usage pattern ---
+# --- Convenience wrapper matching notebook's invoke_with_retry usage pattern ---
 def answer_question(question: str) -> str:
     """Runs the full RAG pipeline end-to-end and returns a plain string answer."""
     return main_chain.invoke(question)
